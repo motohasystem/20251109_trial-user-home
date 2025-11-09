@@ -36,11 +36,33 @@
   border-radius: 12px;
   padding: 20px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
 }
 
 .profile-section:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section.clickable {
+  cursor: pointer;
+}
+
+.profile-section.clickable .section-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-arrow {
+  font-size: 1.5rem;
+  color: #667eea;
+  font-weight: bold;
+}
+
+.not-set {
+  color: #a0aec0;
+  font-style: italic;
 }
 
 .section-title {
@@ -61,6 +83,90 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: #2d3748;
+}
+
+.nickname-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nickname-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nickname-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1.2rem;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.nickname-input:focus {
+  outline: none;
+  border-color: #764ba2;
+}
+
+.nickname-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* ボタンスタイル */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+  background: #e2e8f0;
+  color: #2d3748;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #cbd5e0;
+}
+
+.btn-edit {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+  padding: 8px 16px;
+}
+
+.btn-edit:hover {
+  background: #667eea;
+  color: white;
+}
+
+.btn-large {
+  width: 100%;
+  padding: 14px 24px;
+  font-size: 1.1rem;
 }
 
 /* 避難所 */

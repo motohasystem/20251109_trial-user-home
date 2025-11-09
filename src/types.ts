@@ -5,11 +5,11 @@ export interface UserProfile {
   /** ニックネーム */
   nickname: string;
   /** 最寄りの避難所 */
-  nearestShelter: string;
+  nearestShelter: string | null;
   /** 性格診断結果 */
-  personalityResult: PersonalityResult;
+  personalityResult: PersonalityResult | null;
   /** パッカーン結果 */
-  pakkaanResult: PakkaanResult;
+  pakkaanResult: PakkaanResult | null;
 }
 
 /**
