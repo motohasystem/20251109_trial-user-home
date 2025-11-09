@@ -1,0 +1,235 @@
+.user-profile-screen {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+/* ヘッダー */
+.profile-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+.profile-header h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.profile-header .subtitle {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* コンテンツエリア */
+.profile-content {
+  padding: 20px;
+}
+
+/* セクション共通スタイル */
+.profile-section {
+  margin-bottom: 24px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 1.1rem;
+  color: #667eea;
+  margin-bottom: 12px;
+  font-weight: 600;
+  border-left: 4px solid #667eea;
+  padding-left: 12px;
+}
+
+.section-content {
+  padding: 8px 0;
+}
+
+/* ニックネーム */
+.nickname {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+/* 避難所 */
+.shelter-name {
+  font-size: 1.2rem;
+  color: #4a5568;
+  display: flex;
+  align-items: center;
+}
+
+.shelter-name::before {
+  content: '📍';
+  margin-right: 8px;
+  font-size: 1.5rem;
+}
+
+/* 性格診断結果 */
+.personality-result {
+  padding: 12px 0;
+}
+
+.personality-type {
+  font-size: 1.3rem;
+  color: #764ba2;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.personality-description {
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.traits h4 {
+  font-size: 0.9rem;
+  color: #718096;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.traits-list {
+  list-style: none;
+  padding: 0;
+}
+
+.trait-item {
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  background: white;
+  border-radius: 8px;
+  color: #2d3748;
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.trait-item::before {
+  content: '✓';
+  color: #667eea;
+  font-weight: bold;
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+/* パッカーン結果 */
+.pakkaan-result {
+  padding: 12px 0;
+}
+
+.pakkaan-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.pakkaan-level {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.pakkaan-type {
+  font-size: 1.3rem;
+  color: #764ba2;
+  font-weight: 700;
+}
+
+.pakkaan-score {
+  margin-bottom: 16px;
+}
+
+.score-label {
+  font-size: 0.9rem;
+  color: #718096;
+  margin-bottom: 6px;
+}
+
+.score-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 8px;
+}
+
+.score-bar {
+  width: 100%;
+  height: 12px;
+  background: #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.score-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+.pakkaan-comment {
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.6;
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 600px) {
+  .profile-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .profile-content {
+    padding: 16px;
+  }
+
+  .profile-section {
+    padding: 16px;
+  }
+
+  .nickname {
+    font-size: 1.3rem;
+  }
+
+  .shelter-name {
+    font-size: 1.1rem;
+  }
+
+  .personality-type,
+  .pakkaan-type {
+    font-size: 1.1rem;
+  }
+
+  .score-value {
+    font-size: 2rem;
+  }
+
+  .pakkaan-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
