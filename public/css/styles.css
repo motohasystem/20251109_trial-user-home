@@ -1,0 +1,483 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.loading-message,
+.error-message {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+  color: #2d3748;
+  text-align: center;
+}
+
+.error-message {
+  color: #e53e3e;
+}
+
+/* ユーザープロフィール画面 */
+.user-profile-screen {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%;
+}
+
+.profile-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+.profile-header h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.profile-header .subtitle {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.profile-content {
+  padding: 20px;
+}
+
+.profile-section {
+  margin-bottom: 24px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.profile-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section.clickable {
+  cursor: pointer;
+}
+
+.profile-section.clickable .section-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  color: #667eea;
+  margin-bottom: 12px;
+  font-weight: 600;
+  border-left: 4px solid #667eea;
+  padding-left: 12px;
+}
+
+.section-content {
+  padding: 8px 0;
+}
+
+.nav-arrow {
+  font-size: 1.5rem;
+  color: #667eea;
+  font-weight: bold;
+}
+
+.not-set {
+  color: #a0aec0;
+  font-style: italic;
+}
+
+/* ニックネーム */
+.nickname {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+.nickname-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nickname-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nickname-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1.2rem;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.nickname-input:focus {
+  outline: none;
+  border-color: #764ba2;
+}
+
+.nickname-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* ボタンスタイル */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+  background: #e2e8f0;
+  color: #2d3748;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #cbd5e0;
+}
+
+.btn-edit {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+  padding: 8px 16px;
+}
+
+.btn-edit:hover {
+  background: #667eea;
+  color: white;
+}
+
+.btn-large {
+  width: 100%;
+  padding: 14px 24px;
+  font-size: 1.1rem;
+}
+
+/* 避難所 */
+.shelter-name {
+  font-size: 1.2rem;
+  color: #4a5568;
+  display: flex;
+  align-items: center;
+}
+
+.shelter-name::before {
+  content: '📍';
+  margin-right: 8px;
+  font-size: 1.5rem;
+}
+
+/* 性格診断結果 */
+.personality-result {
+  padding: 12px 0;
+}
+
+.personality-type {
+  font-size: 1.3rem;
+  color: #764ba2;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.personality-description {
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* パッカーン結果 */
+.pakkaan-result {
+  padding: 12px 0;
+}
+
+.pakkaan-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.pakkaan-level {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.pakkaan-type {
+  font-size: 1.3rem;
+  color: #764ba2;
+  font-weight: 700;
+}
+
+.score-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+/* 入力ページスタイル */
+.input-page {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%;
+}
+
+.page-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.back-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.page-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.page-content {
+  padding: 24px;
+}
+
+.input-form {
+  background: #f8f9fa;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 8px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.form-input:disabled {
+  background: #f7fafc;
+  cursor: not-allowed;
+}
+
+.form-actions {
+  margin-top: 24px;
+}
+
+/* テストコンテナ */
+.test-container {
+  background: #f8f9fa;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+}
+
+.question-card {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.question-number {
+  font-size: 0.9rem;
+  color: #718096;
+  margin-bottom: 12px;
+}
+
+.question-text {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.answer-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.answer-btn {
+  padding: 16px;
+  font-size: 1rem;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.answer-btn:hover:not(:disabled) {
+  border-color: #667eea;
+  background: #f7fafc;
+  transform: translateY(-2px);
+}
+
+.answer-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 600px) {
+  .profile-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .profile-content,
+  .page-content {
+    padding: 16px;
+  }
+
+  .profile-section {
+    padding: 16px;
+  }
+
+  .nickname {
+    font-size: 1.3rem;
+  }
+
+  .shelter-name {
+    font-size: 1.1rem;
+  }
+
+  .personality-type,
+  .pakkaan-type {
+    font-size: 1.1rem;
+  }
+
+  .score-value {
+    font-size: 2rem;
+  }
+
+  .pakkaan-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .test-container,
+  .input-form {
+    padding: 16px;
+  }
+
+  .question-text {
+    font-size: 1.1rem;
+  }
+
+  .answer-btn {
+    padding: 14px;
+    font-size: 0.95rem;
+  }
+}

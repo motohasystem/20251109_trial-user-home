@@ -24,14 +24,34 @@
 
 ## 技術スタック
 
-- React 18
-- TypeScript
-- React Router 6
-- Vite
-- JWT認証
-- CSS3
+このアプリケーションは**プレーンなJavaScript**で実装されています:
+
+- **バニラJavaScript (ES6 Modules)**
+- **HTML5/CSS3**
+- **ハッシュベースルーティング**
+- **JWT認証**
+- **ビルドツール不要**
 
 ## セットアップ
+
+### プレーンJSバージョン（推奨）
+
+ビルドツール不要で、そのまま動作します:
+
+```bash
+# ローカルサーバーで起動（Python 3の場合）
+cd public
+python3 -m http.server 8000
+
+# または Node.jsのhttp-serverを使用
+npx http-server public -p 8000
+```
+
+ブラウザで `http://localhost:8000` を開いてください。
+
+### Reactバージョン（レガシー）
+
+React版も `src/` ディレクトリに残っています:
 
 ```bash
 # 依存関係のインストール
@@ -42,42 +62,68 @@ npm run dev
 
 # ビルド
 npm run build
-
-# プレビュー
-npm run preview
 ```
 
 ## プロジェクト構成
 
+### プレーンJSバージョン（public/）
+
+```
+public/
+├── index.html          # メインHTMLファイル
+├── css/
+│   └── styles.css      # 全スタイル
+└── js/
+    ├── main.js         # エントリーポイント
+    ├── router.js       # ハッシュルーティング
+    ├── pages/          # ページコンポーネント
+    │   ├── home.js     # ホーム画面
+    │   ├── shelter.js  # 避難所入力
+    │   ├── personality.js  # 性格診断
+    │   └── pakkaan.js  # パッカーン診断
+    └── utils/          # ユーティリティ
+        ├── auth.js     # JWT認証
+        └── api.js      # API通信
+```
+
+### Reactバージョン（src/）
+
 ```
 src/
 ├── components/          # Reactコンポーネント
-│   ├── UserProfileScreen.tsx    # ホーム画面コンポーネント
+│   ├── UserProfileScreen.tsx
 │   └── UserProfileScreen.css
 ├── pages/              # ページコンポーネント
-│   ├── ShelterInput.tsx         # 避難所入力ページ
-│   ├── PersonalityTest.tsx      # 性格診断ページ
-│   ├── PakkaanTest.tsx          # パッカーン診断ページ
+│   ├── ShelterInput.tsx
+│   ├── PersonalityTest.tsx
+│   ├── PakkaanTest.tsx
 │   └── InputPage.css
 ├── utils/              # ユーティリティ
-│   ├── auth.ts                  # JWT認証関連
-│   └── api.ts                   # API通信関連
-├── data/               # サンプルデータ
-│   └── sampleData.ts
-├── types.ts            # TypeScript型定義
-├── App.tsx             # メインアプリケーション（ルーティング）
-├── App.css
-├── main.tsx            # エントリーポイント
-└── index.css           # グローバルスタイル
+│   ├── auth.ts
+│   └── api.ts
+├── types.ts
+├── App.tsx
+└── main.tsx
 ```
+
+## ルーティング
+
+プレーンJS版はハッシュベースのルーティングを使用しています:
+
+- `#/` - ホーム画面
+- `#/shelter` - 避難所入力
+- `#/personality` - 性格診断
+- `#/pakkaan` - パッカーン診断
+
+相対パスで動作するため、任意のディレクトリに配置可能です。
 
 ## API連携
 
-### 環境変数
-`.env`ファイルにAPIのベースURLを設定できます:
+### APIベースURL
+`public/js/utils/api.js` の `API_BASE_URL` を編集してください:
 
-```
-VITE_API_BASE_URL=http://localhost:3000/api
+```javascript
+const API_BASE_URL = 'http://localhost:3000/api';
 ```
 
 ### APIエンドポイント
@@ -91,6 +137,23 @@ VITE_API_BASE_URL=http://localhost:3000/api
 ## デモモード
 
 APIが利用できない場合、自動的にデモモードで動作します。デモ用のJWTトークンが生成され、ローカルストレージに保存されます。
+
+## 特徴
+
+- **ビルド不要**: HTML/CSS/JavaScriptだけで動作
+- **相対パス対応**: どのディレクトリに配置しても動作
+- **モダンブラウザ対応**: ES6 Modulesを使用
+- **軽量**: 外部ライブラリ不要
+- **レスポンシブデザイン**: モバイル対応
+
+## ブラウザ対応
+
+- Chrome（最新版）
+- Firefox（最新版）
+- Safari（最新版）
+- Edge（最新版）
+
+注: ES6 Modules対応が必要です。
 
 ## ライセンス
 
